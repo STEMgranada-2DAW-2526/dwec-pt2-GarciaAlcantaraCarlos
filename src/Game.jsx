@@ -7,11 +7,11 @@ export default function Game() {
 
   useEffect(() => {
     const ticker = setInterval(() => {
-      dispatch({ type: 'AUTO_SHOOT' })
+      dispatch ({ type: 'AUTO_SHOOT' })
     }, (1000 / state.autoShotsPerSecond))
 
     return () => clearInterval(ticker)
-  }, [state.autoShotsPerSecond])
+  }, [dispatch, state.autoShotsPerSecond])
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function Game() {
           <p>{ state.caramels }</p>
         </div>
       </div>
-      <button className="mainClicker" onClick={ dispatch({ type: 'CLICK_SHOOT' }) }>
+      <button className="mainClicker" onClick={ () => dispatch({ type: 'CLICK_SHOOT' }) }>
         <img src="/canion_turron.png" alt="Cañón disparador" />
       </button>
     </>
