@@ -5,13 +5,13 @@ import './Game.css'
 export default function Game() {
   const { state, dispatch } = useGlobalState();
 
-  useEffect(() => {
-    const ticker = setInterval(() => {
-      dispatch ({ type: 'AUTO_SHOOT' })
-    }, (1000 / state.autoShotsPerSecond))
+  // useEffect(() => {
+  //   const ticker = setInterval(() => {
+  //     dispatch ({ type: 'AUTO_SHOOT' })
+  //   }, (1000 / state.autoShotsPerSecond))
 
-    return () => clearInterval(ticker)
-  }, [dispatch, state.autoShotsPerSecond])
+  //   return () => clearInterval(ticker)
+  // }, [dispatch, state.autoShotsPerSecond])
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Game() {
         </div>
         <div className="cell">
           <p>Daño de oleada</p>
-          <p>{ state.damageDealt } / { state.waveGoal }</p>
+          <p>{ state.damageDealt.toFixed(0) } / { state.waveGoal.toFixed(0) }</p>
         </div>
         <div className="cell">
           <p>Caramelos sangrientos</p>

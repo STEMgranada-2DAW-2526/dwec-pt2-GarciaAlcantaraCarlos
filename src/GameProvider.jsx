@@ -4,7 +4,7 @@ export const GameContext = createContext();
 
 const initialState = {
   damageDealt: 0,
-  waveGoal: 100,
+  waveGoal: 10,
   caramels: 20,
   damagePerShot: 1,
   authoShotsPerSecond: 1,
@@ -24,6 +24,13 @@ function globalReducer(state, action) {
     console.log('buyu');
   } else if (action.type == 'NEXT_WAVE') {
     console.log('next');
+  }
+
+  if (newState.damageDealt >= newState.waveGoal) {
+    newState.damageDealt = 0;
+    newState.waveGoal = newState.waveGoal * 1.1;
+    newState.round = newState.round + 1;
+    newState.caramels = newState.caramels + 10;
   }
 
   return newState;

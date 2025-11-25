@@ -8,6 +8,7 @@ function App() {
     <>
       <GameProvider>
         <Game />
+        
       </GameProvider>
     </>
   )
