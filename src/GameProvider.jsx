@@ -7,8 +7,9 @@ const initialState = {
   waveGoal: 10,
   caramels: 20,
   damagePerShot: 1,
-  authoShotsPerSecond: 1,
+  autoShotsPerSecond: 1,
   round: 1,
+  multiplierCost: 20,
   upgrades: []
 }
 
@@ -19,7 +20,10 @@ function globalReducer(state, action) {
   if (action.type == 'CLICK_SHOOT' || action.type == 'AUTO_SHOOT') {
     newState.damageDealt = newState.damageDealt + state.damagePerShot;
   } else if (action.type == 'BUY_MULTIPLIER') {
-    console.log('buym');
+    if (newState.caramels >= newState.multiplierCost) {
+      newState.multiplierCost = newState.multiplierCost * 1.2;
+      newState.autoShotsPerSecond = newState.autoShotsPerSecond + 1;
+    }
   } else if (action.type == 'BUY_DAMAGE_UPGRADE') {
     console.log('buyu');
   } else if (action.type == 'NEXT_WAVE') {
