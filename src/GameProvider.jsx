@@ -1,4 +1,6 @@
-import { createContext, useState } from "react"
+import { createContext, useReducer } from "react"
+
+export const GameContext = createContext();
 
 const initialState = {
   damageDealt: 0,
@@ -6,19 +8,29 @@ const initialState = {
   caramels: 20,
   gamaePerShot: 1,
   authoShotsPerSecond: 1,
-  
+  round: 1,
   upgrades: []
 }
 
-export const GameContext = createContext();
+function globalReducer(state, action) {
+  if (action.type == 'CLICK_SHOOT') {
 
-export default function GameProvider() {
+  } else if (action.type == 'CLICK_SHOOT') {
 
-  const [test, setTest] = useState('test')
+    } else if (action.type == 'CLICK_SHOOT') {
+
+      } else if (action.type == 'CLICK_SHOOT') {
+
+  } else if (action.type == 'CLICK_SHOOT') {
+}
+
+export default function GameProvider( {children} ) {
+  
+  const [state, dispatch] = useReducer(globalReducer, initialState);
 
   return (
-    <GameContext value={ test }>
+    <GameContext value={{ state, dispatch }}>
       {children}
     </GameContext>
-  )
+  );
 }

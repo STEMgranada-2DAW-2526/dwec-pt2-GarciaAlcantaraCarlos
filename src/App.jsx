@@ -1,10 +1,13 @@
 import './App.css'
+import GameProvider from './GameProvider'
 
 function App() {
 
   return (
     <>
-      <p>Hi</p>
+      <GameProvider>
+
+      </GameProvider>
     </>
   )
 }
