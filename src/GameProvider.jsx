@@ -21,16 +21,13 @@ function globalReducer(state, action) {
     newState.damageDealt = newState.damageDealt + state.damagePerShot;
   } else if (action.type == 'BUY_MULTIPLIER') {
     if (newState.caramels >= newState.multiplierCost) {
+      newState.caramels = newState.caramels - newState.multiplierCost;
       newState.multiplierCost = newState.multiplierCost * 1.2;
       newState.autoShotsPerSecond = newState.autoShotsPerSecond + 1;
     }
   } else if (action.type == 'BUY_DAMAGE_UPGRADE') {
     console.log('buyu');
   } else if (action.type == 'NEXT_WAVE') {
-    console.log('next');
-  }
-
-  if (newState.damageDealt >= newState.waveGoal) {
     newState.damageDealt = 0;
     newState.waveGoal = newState.waveGoal * 1.1;
     newState.round = newState.round + 1;

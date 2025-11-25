@@ -7,8 +7,8 @@ export default function UpgradesBoard () {
   return (
     <div className="upgradePanel">
       <button className="mainMultiplier" onClick={() => dispatch({ type: 'BUY_MULTIPLIER' })}>
-        Disparos por segundo: 
-        Mejorar disparos automáticos: {state.multiplierCost} caramelos
+        Disparos por segundo: {state.autoShotsPerSecond} <br />
+        Mejorar disparos automáticos: {state.multiplierCost.toFixed(0)} caramelos
       </button>
       <div className="progressButtons">
         <button></button>
