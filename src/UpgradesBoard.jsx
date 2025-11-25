@@ -11,7 +11,18 @@ export default function UpgradesBoard () {
         Mejorar disparos automáticos: {state.multiplierCost.toFixed(0)} caramelos
       </button>
       <div className="progressButtons">
-        <button></button>
+        <button>
+          Cañón de Turrón Explosivo<br />
+          15 caramelos (+2 daño)
+        </button>
+        <button>
+          Renos-Lanzamisiles<br />
+          15 caramelos (+5 daño)
+        </button>
+        <button>
+          Árbol de Navidad Laser<br />
+          15 caramelos (+2 daño)
+        </button>
       </div>
     </div>
   )
