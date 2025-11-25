@@ -4,7 +4,7 @@ export const GameContext = createContext();
 
 const initialState = {
   damageDealt: 0,
-  waveGoal: 10,
+  waveGoal: 100,
   caramels: 20,
   damagePerShot: 1,
   autoShotsPerSecond: 1,
@@ -26,14 +26,10 @@ function globalReducer(state, action) {
       newState.autoShotsPerSecond = newState.autoShotsPerSecond + 1;
     }
   } else if (action.type == 'BUY_DAMAGE_UPGRADE') {
-    if (newState.caramels >= 15 && newState.upgrades == 0) {
-      newState.caramels = newState.caramels - 15;
-    } else if (newState.caramels >= 30 && newState.upgrades == 1) {
-      newState.caramels = newState.caramels - 30;
-    } else if (newState.caramels >= 50 && newState.upgrades == 2) {
-      newState.caramels = newState.caramels - 50;
+    if (newState.caramels >= action.cost && newState.upgrades == action.step) {
+      newState.caramels = newState.caramels - action.cost;
+      newState.upgrades = newState.upgrades + 1;
     }
-    newState.upgrades = newState.upgrades + 1;
   } else if (action.type == 'NEXT_WAVE') {
     newState.damageDealt = 0;
     newState.waveGoal = newState.waveGoal * 1.1;
