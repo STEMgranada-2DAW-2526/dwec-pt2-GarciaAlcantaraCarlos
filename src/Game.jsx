@@ -17,7 +17,7 @@ export default function Game() {
     if (state.damageDealt >= state.waveGoal) {
       dispatch({ type: 'NEXT_WAVE' })
     }
-  }, [dispatch, state.damageDealt])
+  }, [dispatch, state.damageDealt, state.waveGoal])
 
   return (
     <>

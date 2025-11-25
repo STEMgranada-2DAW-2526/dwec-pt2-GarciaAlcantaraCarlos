@@ -29,6 +29,7 @@ function globalReducer(state, action) {
     if (newState.caramels >= action.cost && newState.upgrades == action.step) {
       newState.caramels = newState.caramels - action.cost;
       newState.upgrades = newState.upgrades + 1;
+      newState.damagePerShot = newState.damagePerShot + action.damage;
     }
   } else if (action.type == 'NEXT_WAVE') {
     newState.damageDealt = 0;
