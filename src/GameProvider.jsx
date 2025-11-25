@@ -10,7 +10,7 @@ const initialState = {
   autoShotsPerSecond: 1,
   round: 1,
   multiplierCost: 20,
-  upgrades: []
+  upgrades: 0
 }
 
 function globalReducer(state, action) {

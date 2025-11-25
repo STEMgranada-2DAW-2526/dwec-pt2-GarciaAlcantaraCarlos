@@ -1,5 +1,6 @@
 .statsBoard {
   display: flex;
+  justify-content: center;
 
   .cell{
     background-color: white;
