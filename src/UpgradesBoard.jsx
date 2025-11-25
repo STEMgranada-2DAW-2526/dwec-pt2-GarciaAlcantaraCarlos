@@ -11,17 +11,24 @@ export default function UpgradesBoard () {
         Mejorar disparos automáticos: {state.multiplierCost.toFixed(0)} caramelos
       </button>
       <div className="progressButtons">
-        <button>
-          Cañón de Turrón Explosivo<br />
-          15 caramelos (+2 daño)
+        <button 
+          className={state.upgrades > 0 ? 'bought' : '' + state.upgrades == 0 ? ' buyable' : ''}
+          onClick={ dispatch('BUY_DAMAGE_UPGRADE') }
+        >
+          Cañón de Turrón Explosivo
+          <span>15 caramelos (+2 daño)</span>
         </button>
-        <button>
-          Renos-Lanzamisiles<br />
-          15 caramelos (+5 daño)
+        <button
+          className={state.upgrades > 1 ? 'bought' : '' + state.upgrades == 1 ? ' buyable' : ''}
+        >
+          Renos-Lanzamisiles
+          <span>20 caramelos (+5 daño)</span>
         </button>
-        <button>
-          Árbol de Navidad Laser<br />
-          15 caramelos (+2 daño)
+        <button 
+          className={state.upgrades > 2 ? 'bought' : '' + state.upgrades == 2 ? ' buyable' : ''}
+        >
+          Árbol de Navidad Laser
+          <span>50 caramelos (+10 daño)</span>
         </button>
       </div>
     </div>
