@@ -17,9 +17,9 @@ function globalReducer(state, action) {
   const newState = { ...state };
 
   if (action.type == 'CLICK_SHOOT') {
-
+    console.log('click')
   } else if (action.type == 'AUTO_SHOOT') {
-
+    
   } else if (action.type == 'BUY_MULTIPLIER') {
 
   } else if (action.type == 'BUY_DAMAGE_UPGRADE') {

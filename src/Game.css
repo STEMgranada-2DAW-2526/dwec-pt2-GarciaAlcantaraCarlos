@@ -1,0 +1,22 @@
+.statsBoard {
+  display: flex;
+
+  .cell{
+    background-color: white;
+    color: black;
+    font-size: 1.15rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+
+    p { margin: 0; }
+    p:first-of-type { font-weight: 700; }
+  }
+}
+
+.mainClicker {
+  width: 20rem;
+  margin: 1rem;
+
+  img { width: 100%; }
+}
