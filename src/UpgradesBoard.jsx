@@ -13,19 +13,21 @@ export default function UpgradesBoard () {
       <div className="progressButtons">
         <button 
           className={state.upgrades > 0 ? 'bought' : '' + state.upgrades == 0 ? ' buyable' : ''}
-          onClick={ dispatch('BUY_DAMAGE_UPGRADE') }
+          onClick={ () => dispatch({ type: 'BUY_DAMAGE_UPGRADE' }) }
         >
           Cañón de Turrón Explosivo
           <span>15 caramelos (+2 daño)</span>
         </button>
         <button
           className={state.upgrades > 1 ? 'bought' : '' + state.upgrades == 1 ? ' buyable' : ''}
+          onClick={ () => dispatch({ type: 'BUY_DAMAGE_UPGRADE' }) }
         >
           Renos-Lanzamisiles
           <span>20 caramelos (+5 daño)</span>
         </button>
         <button 
           className={state.upgrades > 2 ? 'bought' : '' + state.upgrades == 2 ? ' buyable' : ''}
+          onClick={ () => dispatch({ type: 'BUY_DAMAGE_UPGRADE' }) }
         >
           Árbol de Navidad Laser
           <span>50 caramelos (+10 daño)</span>
