@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react"
+import { createContext, useReducer, useContext } from "react"
 
 export const GameContext = createContext();
 
@@ -13,24 +13,35 @@ const initialState = {
 }
 
 function globalReducer(state, action) {
+
+  const newState = { ...state };
+
   if (action.type == 'CLICK_SHOOT') {
 
-  } else if (action.type == 'CLICK_SHOOT') {
+  } else if (action.type == 'AUTO_SHOOT') {
 
-    } else if (action.type == 'CLICK_SHOOT') {
+  } else if (action.type == 'BUY_MULTIPLIER') {
 
-      } else if (action.type == 'CLICK_SHOOT') {
+  } else if (action.type == 'BUY_DAMAGE_UPGRADE') {
 
-  } else if (action.type == 'CLICK_SHOOT') {
+  } else if (action.type == 'NEXT_WAVE') {
+
+  }
+
+  return newState;
 }
 
-export default function GameProvider( {children} ) {
+export function GameProvider( {children} ) {
   
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
   return (
-    <GameContext value={{ state, dispatch }}>
+    <GameContext.Provider value={{ state, dispatch }}>
       {children}
-    </GameContext>
+    </GameContext.Provider>
   );
+}
+
+export function useGlobalState() {
+  return useContext(GameContext);
 }
